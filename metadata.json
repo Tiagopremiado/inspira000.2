@@ -1,0 +1,5 @@
+{
+  "name": "Centro de Treinamento INSPIRA",
+  "description": "Uma plataforma completa de cursos online com portais para alunos e administradores, construída com React, TypeScript, Tailwind CSS e Supabase.",
+  "requestFramePermissions": []
+}
