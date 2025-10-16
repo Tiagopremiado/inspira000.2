@@ -21,6 +21,13 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["App.tsx", "index.tsx", "types.ts", "services", "components", "pages"],
+  "include": [
+    "App.tsx",
+    "index.tsx",
+    "types.ts",
+    "components",
+    "pages",
+    "services"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
