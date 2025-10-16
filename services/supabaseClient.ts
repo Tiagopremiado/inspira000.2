@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Lê as variáveis de ambiente. Elas SÃO OBRIGATÓRIAS em qualquer ambiente.
-const supabaseUrl = (import.meta as any).env.VITE_SUPABASE_URL;
-const supabaseAnonKey = (import.meta as any).env.VITE_SUPABASE_ANON_KEY;
+// As variáveis de ambiente do Vite são acessadas através de `import.meta.env`.
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // Princípio "Fail Fast": Se as variáveis críticas não estiverem definidas,
 // a aplicação deve quebrar imediatamente com uma mensagem de erro clara.

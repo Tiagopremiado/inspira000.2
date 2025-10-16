@@ -331,13 +331,15 @@ export const api = {
         const { data, error } = await supabase.from('enrollments').select('users(*), courses(*, modules(*, lessons(*))), completed_lesson_ids');
         if (error) throw error;
         return data
-            .filter(e => e.users && e.courses)
+// FIX: The type error suggests `e.users` is an array. Filter for non-empty arrays to prevent runtime errors.
+            .filter(e => e.users && Array.isArray(e.users) && e.users.length > 0 && e.courses)
             .map(e => {
                 const course = toCourse(e.courses);
                 const totalLessons = course.modules.reduce((acc, m) => acc + m.lessons.length, 0);
                 const completedCount = e.completed_lesson_ids?.length || 0;
                 const progress = totalLessons > 0 ? (completedCount / totalLessons) * 100 : 0;
-                const user = toUser(e.users, e.users.email); 
+// FIX: Access the user object from the first element of the `e.users` array.
+                const user = toUser(e.users[0], e.users[0].email); 
                 return {
                     student: user,
                     course,
