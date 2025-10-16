@@ -22,6 +22,5 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": ["App.tsx", "index.tsx", "types.ts", "services", "components", "pages"],
-  "exclude": ["vite.config.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "exclude": ["vite.config.ts", "tsconfig.node.json"]
 }
